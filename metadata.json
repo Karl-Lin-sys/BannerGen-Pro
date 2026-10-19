@@ -1,0 +1,6 @@
+{
+  "name": "BannerGen Pro",
+  "description": "Generate high-quality, professional banner ads in standard industry sizes using Gemini's image generation capabilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
