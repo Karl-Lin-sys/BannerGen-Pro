@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express from 'express';
 import {GoogleGenAI, Type} from '@google/genai';
 import dotenv from 'dotenv';
@@ -10,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use('/api', localApiOnly(() => port));
 app.use(express.json({limit: '10mb'}));
 
 // Vite integration for development
@@ -133,6 +135,6 @@ if (process.env.NODE_ENV === 'production') {
   // but AI Studio uses a specific setup.
 }
 
-app.listen(port, () => {
+app.listen(port, "127.0.0.1", () => {
   console.log(`Server running on port ${port}`);
 });
